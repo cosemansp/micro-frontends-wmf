@@ -1,0 +1,16 @@
+{
+  "name": "frontend-module-federation",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "wsrun --parallel start:watch",
+    "cleanup": "wsrun cleanup",
+    "build": "wsrun --parallel build"
+  },
+  "devDependencies": {
+    "wsrun": "^5.2.0"
+  },
+  "dependencies": {}
+}
