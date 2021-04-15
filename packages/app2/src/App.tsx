@@ -1,4 +1,4 @@
-import Panel from './Panel';
+import Panel from './components/Panel';
 import React from 'react';
 
 function App() {

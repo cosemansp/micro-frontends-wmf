@@ -1,0 +1,23 @@
+{
+  "name": "js-host",
+  "version": "0.0.1",
+  "main": "dist/mfLoader.js",
+  "private": true,
+  "dependencies": {},
+  "scripts": {
+    "start:watch": "webpack serve --mode development --env development --port 3005 --open",
+    "build:watch": "webpack --watch",
+    "build": "webpack --mode production",
+    "cleanup": "rimraf dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
+    "babel-loader": "^8.0.6",
+    "rimraf": "^3.0.2",
+    "webpack": "^5.31.0",
+    "webpack-cli": "^4.6.0"
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="http://localhost:3002/remoteEntry.js"></script>
+    <script src="http://localhost:3003/remoteEntry.js"></script>
+    <style>
+      html,
+      body {
+        scroll-behavior: smooth;
+        width: 100%;
+        height: 100%;
+      }
+      main > * > * {
+        height: 100%;
+      }
+    </style>
+    <script src="https://unpkg.com/single-spa@5.9.2"></script>
+    <script src="https://unpkg.com/@euricom/mf-loader@0.4.1"></script>
+  </head>
+  <body>
+    <div style="height: 100%; display: flex; flex-direction: column">
+      <div id="single-spa-application:header"></div>
+      <h1>SingleSPA & Webpack Module Federation</h1>
+      <div id="single-spa-application:panel"></div>
+      <div id="single-spa-application:footer"></div>
+    </div>
+    <script>
+      const authToken = 'xc67f6as87f7s9d';
+
+      // SingleSpa API:
+      // https://single-spa.js.org/docs/api
+      singleSpa.registerApplication({
+        name: 'footer',
+        app: () => mfLoader.getRemoteModule('app1', './Footer'),
+        activeWhen: '/',
+        customProps: {
+          authToken,
+        },
+      });
+
+      singleSpa.registerApplication({
+        name: 'header',
+        app: () => mfLoader.getRemoteModule('app1', './Header'),
+        activeWhen: '/',
+        customProps: {
+          authToken,
+        },
+      });
+
+      singleSpa.registerApplication({
+        name: 'panel',
+        app: () => mfLoader.getRemoteModule('app2', './Panel'),
+        activeWhen: '/tst1',
+        customProps: {
+          authToken,
+        },
+      });
+      singleSpa.start();
+
+      const mountedAppNames = singleSpa.getAppNames();
+      console.log(mountedAppNames); // ['app1', 'app2', 'navbar']
+    </script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
-import Button from './Button';
-import Footer from './Footer';
+import Button from './components/Button';
+import Footer from './components/Footer';
 import React from 'react';
 
 function App() {
