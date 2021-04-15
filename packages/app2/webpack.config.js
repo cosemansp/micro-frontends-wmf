@@ -22,6 +22,18 @@ module.exports = {
     extensions: ['.jsx', '.js', '.json', '.ts', '.tsx'],
   },
 
+  devServer: {
+    historyApiFallback: true,
+    compress: true,
+
+    // required to allow CORS on DevServer (see <script crossorigin ...></script>)
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+    },
+  },
+
   module: {
     rules: [
       {
@@ -33,10 +45,7 @@ module.exports = {
       },
       {
         test: /\.png$/,
-        use: {
-          loader: 'url-loader',
-          options: { limit: 8192 },
-        },
+        type: 'asset/resource',
       },
       {
         test: /\.css$/,
@@ -60,7 +69,6 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './Panel': './src/components/Panel',
-        'shareable/Panel': './src/SharedPanel',
       },
       remotes: {
         app1: 'app1',

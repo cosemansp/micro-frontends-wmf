@@ -3,21 +3,21 @@ import { registerApplication, start } from 'single-spa';
 registerApplication(
   'footer',
   // @ts-ignore
-  () => import('myApp/Footer'),
+  () => import('app1/Footer'),
   (location) => location.pathname.startsWith('/'),
 );
 
 registerApplication(
   'header',
   // @ts-ignore
-  () => import('myApp/Header'),
+  () => import('app1/Header'),
   (location) => location.pathname.startsWith('/'),
 );
 
 registerApplication(
   'panel',
   // @ts-ignore
-  () => import('myOtherApp/Panel'),
+  () => import('app2/Panel'),
   (location) => location.pathname.startsWith('/'),
 );
 

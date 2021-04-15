@@ -22,6 +22,18 @@ module.exports = {
     extensions: ['.jsx', '.js', '.json', '.ts', '.tsx'],
   },
 
+  devServer: {
+    historyApiFallback: true,
+    compress: true,
+
+    // required to allow CORS on DevServer (see <script crossorigin ...></script>)
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+    },
+  },
+
   module: {
     rules: [
       {
@@ -33,10 +45,7 @@ module.exports = {
       },
       {
         test: /\.png$/,
-        use: {
-          loader: 'url-loader',
-          options: { limit: 8192 },
-        },
+        type: 'assets/resource',
       },
       {
         test: /\.css$/,
@@ -62,7 +71,6 @@ module.exports = {
         './Footer': './src/components/Footer',
         './Header': './src/components/Header',
         './Button': './src/components/Button',
-        'shareable/Footer': './src/SharedFooter.tsx',
       },
       shared: {
         react: { singleton: true, strictVersion: true, requiredVersion: '>=17.0.0 <17.1.0' },

@@ -33,13 +33,25 @@ module.exports = {
     ],
   },
 
+  devServer: {
+    historyApiFallback: true,
+    compress: true,
+
+    // required to allow CORS on DevServer (see <script crossorigin ...></script>)
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+    },
+  },
+
   plugins: [
     new ModuleFederationPlugin({
       name: pkg.name,
       library: { type: 'var', name: pkg.name },
       filename: 'remoteEntry.js',
       remotes: {
-        myApp: 'app1',
+        app1: 'app1',
       },
       exposes: {},
       shared: {

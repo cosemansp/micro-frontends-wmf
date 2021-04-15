@@ -36,10 +36,10 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'host',
       library: { type: 'var', name: 'host' },
-      filename: 'remoteEntry.js',
+      // filename: 'remoteEntry.js',
       remotes: {
-        myApp: 'app1',
-        myOtherApp: 'app2',
+        app1: 'app1',
+        app2: 'app2',
       },
       exposes: {},
       shared: [],

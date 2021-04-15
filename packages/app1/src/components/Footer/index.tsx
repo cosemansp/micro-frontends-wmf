@@ -16,14 +16,10 @@ const Footer: React.VFC = (props) => {
   return <FooterContainer>Footer from React (app1)</FooterContainer>;
 };
 
-const lifeCycles = singleSpaReact({
+export default Footer;
+
+export const { bootstrap, mount, unmount } = singleSpaReact({
   React,
   ReactDOM,
   rootComponent: Footer,
 });
-
-export const bootstrap = lifeCycles.bootstrap;
-export const mount = lifeCycles.mount;
-export const unmount = lifeCycles.unmount;
-
-export default Footer;
