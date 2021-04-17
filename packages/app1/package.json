@@ -26,9 +26,8 @@
     "webpack-dev-server": "4.0.0-beta.2"
   },
   "scripts": {
-    "start:watch": "webpack serve --mode development --env development --port 3003 --open",
+    "start:watch": "webpack serve --mode development --env development --port 3001 --open",
     "build": "webpack --mode production",
-    "serve": "serve dist -p 3003",
     "cleanup": "rimraf dist"
   }
 }

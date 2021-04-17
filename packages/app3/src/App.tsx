@@ -1,12 +1,14 @@
-import Panel from './components/Panel';
+import UserList from './components/UserList';
 import React from 'react';
+import { QueryClientProvider } from 'react-query';
+import reactQueryClient from './reactQueryClient';
 
 function App() {
   return (
-    <div>
-      <h1>App2</h1>
-      <Panel></Panel>
-    </div>
+    <QueryClientProvider client={reactQueryClient}>
+      <h1>App3</h1>
+      <UserList></UserList>
+    </QueryClientProvider>
   );
 }
 

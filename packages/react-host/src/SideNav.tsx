@@ -1,26 +1,26 @@
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
-import { Link } from "react-router-dom";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import React from "react";
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import { Link } from 'react-router-dom';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import React from 'react';
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     drawer: {
       width: drawerWidth,
-      flexShrink: 0
+      flexShrink: 0,
     },
     drawerPaper: {
-      width: drawerWidth
+      width: drawerWidth,
     },
-    toolbar: theme.mixins.toolbar
-  })
+    toolbar: theme.mixins.toolbar,
+  }),
 );
 
 export default function SideNav() {
@@ -31,7 +31,7 @@ export default function SideNav() {
       className={classes.drawer}
       variant="permanent"
       classes={{
-        paper: classes.drawerPaper
+        paper: classes.drawerPaper,
       }}
       anchor="left"
     >
@@ -39,10 +39,10 @@ export default function SideNav() {
       <Divider />
       <List>
         <ListItem button component={Link} to="/page1">
-          <ListItemText primary="Dialog" />
+          <ListItemText primary="Users" />
         </ListItem>
         <ListItem button component={Link} to="/page2">
-          <ListItemText primary="Styled Components" />
+          <ListItemText primary="Edit User" />
         </ListItem>
       </List>
     </Drawer>

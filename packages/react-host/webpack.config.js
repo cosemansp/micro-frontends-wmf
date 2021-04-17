@@ -52,6 +52,7 @@ module.exports = {
       filename: 'remoteEntry.js',
       remotes: {
         app1: 'app1',
+        app3: 'app3',
       },
       exposes: {},
       shared: {

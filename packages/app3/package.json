@@ -5,6 +5,8 @@
   "dependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-error-boundary": "^3.1.1",
+    "react-query": "^3.13.9",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {
@@ -15,6 +17,7 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.2.1",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.4.1",
@@ -26,7 +29,7 @@
     "webpack-dev-server": "4.0.0-beta.2"
   },
   "scripts": {
-    "start:watch": "webpack serve --mode development --env development --port 3002 --open",
+    "start:watch": "webpack serve --mode development --port 3003 --open",
     "build": "webpack --mode production",
     "cleanup": "rimraf dist"
   }

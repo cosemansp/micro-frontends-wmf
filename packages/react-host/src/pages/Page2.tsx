@@ -1,15 +1,29 @@
 import React from 'react';
 
-// @ts-ignore
-const Button = React.lazy(() => import('app1/Button'));
+interface QuickCreateModule {
+  quickCreate: () => Promise<string>;
+}
 
-const Page2 = () => (
-  <div>
-    <h1>Page 2</h1>
-    <React.Suspense fallback="Loading Styled Component Button...">
-      <Button>&#128133; Button</Button>
-    </React.Suspense>
-  </div>
-);
+// @ts-ignore
+const Footer = React.lazy(() => import('app1/Footer'));
+
+const Page2 = () => {
+  const handleClick = async () => {
+    // @ts-ignore
+    const { quickCreate } = (await import('app3/QuickCreate')) as QuickCreateModule;
+    quickCreate().then((result) => {
+      console.log('hello', result);
+    });
+  };
+  return (
+    <div>
+      <h1>Page 2</h1>
+      <React.Suspense fallback="Loading Styled Component Button...">
+        <Footer></Footer>
+      </React.Suspense>
+      <button onClick={handleClick}>Click me</button>
+    </div>
+  );
+};
 
 export default Page2;
